@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace FileLoggerKata
 {
@@ -9,5 +10,30 @@ namespace FileLoggerKata
         bool Exists(string path);
         DateTime GetLastWriteTime(string path);
         void Rename(string currentPath, string newPath);
+    }
+    public class FileSystem : IFileSystem
+    {
+        public bool Exists(string path)
+        {
+            return File.Exists(path);
+        }
+        public void Create(string path)
+        {
+            File.Create(path);
+        }
+        public void Append(string path, string message)
+        {
+            File.AppendAllText(path, message);
+            //Console.WriteLine("Append Method Here");
+        }
+        public DateTime GetLastWriteTime(string path)
+        {
+            return File.GetLastWriteTime(path);
+        }
+        public void Rename(string currentPath, string newPath)
+        {
+            File.Move(currentPath, newPath);
+        }
+
     }
 }

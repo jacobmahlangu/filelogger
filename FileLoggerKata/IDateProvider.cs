@@ -6,4 +6,13 @@ namespace FileLoggerKata
     {
         DateTime Today { get; }
     }
+    public class DateProvider : IDateProvider
+    {
+        private DateTime _today;
+        public DateTime Today
+        {
+            get => _today; 
+        }
+        public DateProvider() => _today = DateTime.Today;
+    }
 }
