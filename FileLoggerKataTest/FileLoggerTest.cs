@@ -37,6 +37,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
 
             //day 2 Sunday
             //Arrange for File Naming Test
@@ -58,6 +60,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
 
 
             //day 3 Monday
@@ -80,6 +84,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
 
 
             //day 4 Tuesday
@@ -102,6 +108,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged); ;
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
 
 
             //day 5 Wednesday
@@ -124,6 +132,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
 
 
             //day 6 Thurday
@@ -146,6 +156,9 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
+
 
             //day 7 Friday
             //Arrange for File Naming Test
@@ -167,6 +180,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
 
 
             //day 8 Saturday
@@ -191,6 +206,8 @@ namespace FileLoggerKataTest
 
             //Assert for Message Tes
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
+            Console.WriteLine(expectedMessageLogged + " - Expected");
+            Console.WriteLine(actualMessageLogged + " - Actual");
         }
     }
 }
