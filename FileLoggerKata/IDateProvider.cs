@@ -13,6 +13,6 @@ namespace FileLoggerKata
         {
             get => _today; 
         }
-        public DateProvider() => _today = DateTime.Today;
+        public DateProvider(DateTime  Picked_Day) => _today = Picked_Day;
     }
 }

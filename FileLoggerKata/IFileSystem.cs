@@ -19,7 +19,7 @@ namespace FileLoggerKata
         }
         public void Create(string path)
         {
-            File.Create(path);
+            File.AppendAllText(path,"");
         }
         public void Append(string path, string message)
         {
@@ -32,7 +32,15 @@ namespace FileLoggerKata
         }
         public void Rename(string currentPath, string newPath)
         {
-            File.Move(currentPath, newPath);
+            if(File.Exists(newPath))
+            {
+                File.Delete(newPath);
+                File.Move(currentPath, newPath);
+            }
+            else
+            {
+                File.Move(currentPath,newPath);
+            }
         }
 
     }

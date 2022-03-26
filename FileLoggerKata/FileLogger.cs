@@ -17,30 +17,31 @@ namespace FileLoggerKata
             FileSystem = fileSystem;
         }
 
-        public void Log(string message)
+        public string Log(string message)
         {
-            //var logFileName = GetLogFileName();
-            var logFileName = LogFileName + "." + LogExtension;
+                var logFileName = GetLogFileName();
+                //var logFileName = LogFileName + "." + LogExtension;
 
-            /*if (ShouldRotateWeekendLogs())
-            {
-                ArchiveWeekendLog();
-            }*/
+                if (ShouldRotateWeekendLogs())
+                {
+                    ArchiveWeekendLog();
+                }
 
-            if (!FileSystem.Exists(logFileName))
-            {
-                FileSystem.Create(logFileName);
-            }
-            message = FormatMessageDateTime(message);
+                if (!FileSystem.Exists(logFileName))
+                {
+                    FileSystem.Create(logFileName);
+                }
+                message = FormatMessageDateTime(message);
 
-            FileSystem.Append(logFileName, message);
+                FileSystem.Append(logFileName, message);
 
-            /*bool ShouldRotateWeekendLogs()
-            {
-                return IsWeekend(DateProvider.Today) &&
-                       FileSystem.Exists(logFileName) &&
-                       (DateProvider.Today - FileSystem.GetLastWriteTime(logFileName)).Days > 2;
-            }*/
+                bool ShouldRotateWeekendLogs()
+                {
+                    return IsWeekend(DateProvider.Today) &&
+                           FileSystem.Exists(logFileName) &&
+                           (DateProvider.Today - FileSystem.GetLastWriteTime(logFileName)).Days > 2;
+                }
+            return message;
         }
 
         private string GetLogFileName()
@@ -58,9 +59,9 @@ namespace FileLoggerKata
             var archivedFileName = $"{WeekendLogFileName}-{ToFileDateFormat(lastWriteTime)}.{LogExtension}";
             FileSystem.Rename($"{WeekendLogFileName}.{LogExtension}", archivedFileName);
         }
-        private static string FormatMessageDateTime(string message)
+        public string FormatMessageDateTime(string message)
         {
-            return DateTime.Today.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + " " + message;
+            return DateProvider.Today.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("T") + " " + message;
         }
 
         private static string ToFileDateFormat(DateTime date)
@@ -69,6 +70,8 @@ namespace FileLoggerKata
         }
 
         private static bool IsWeekend(DateTime date) => date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        
     }
+
 }
 
