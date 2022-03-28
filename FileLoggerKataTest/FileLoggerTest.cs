@@ -190,7 +190,7 @@ namespace FileLoggerKataTest
             date = Convert.ToDateTime(string_date);
             message = "day 8 Saturday";
             expectedFileName = "weekend.txt";
-            string expectedFileName_lastWeekend = "Weekend-20220326.txt";
+            string expectedFileName_lastWeekend = "weekend-20220328.txt";
             dateProvider = new DateProvider(date);
             fileLogger = new FileLogger(fileSystem, dateProvider);
 
@@ -199,12 +199,12 @@ namespace FileLoggerKataTest
 
             //Assert for File Naming Test
             Assert.IsTrue(fileSystem.Exists(expectedFileName));
-            Assert.IsTrue(fileSystem.Exists(expectedFileName_lastWeekend));
 
             // Arrange for Logged Message Test
             expectedMessageLogged = date.ToString("yyyy-MM-dd") + " " + fileSystem.GetLastWriteTime(expectedFileName).ToString("T") + " " + message;
 
             //Assert for Message Tes
+            Assert.IsTrue(fileSystem.Exists(expectedFileName_lastWeekend));
             Assert.AreEqual(expectedMessageLogged, actualMessageLogged);
             Console.WriteLine(expectedMessageLogged + " - Expected");
             Console.WriteLine(actualMessageLogged + " - Actual");
